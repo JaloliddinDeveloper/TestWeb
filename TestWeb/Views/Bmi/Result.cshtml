@@ -1,0 +1,10 @@
+﻿@model BmiModel
+<div class="container">
+    <h2>BMI Natijalari</h2>
+
+    <p><strong>Vazn:</strong> @Model.Weight kg</p>
+    <p><strong>Bo'y:</strong> @Model.Height sm</p>
+    <p><strong>BMI:</strong> @Model.Bmi.ToString("F2")</p>
+
+    <a asp-action="Index" class="btn btn-primary">Qaytish</a>
+</div>
