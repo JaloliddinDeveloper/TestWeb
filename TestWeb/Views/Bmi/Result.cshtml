@@ -1,10 +1,33 @@
 ﻿@model BmiModel
-<div class="container">
-    <h2>BMI Natijalari</h2>
+
+<div class="container my-4 p-4 border rounded shadow-sm bg-light">
+    <h2 class="mb-4 text-primary">BMI Natijalari</h2>
 
     <p><strong>Vazn:</strong> @Model.Weight kg</p>
     <p><strong>Bo'y:</strong> @Model.Height sm</p>
     <p><strong>BMI:</strong> @Model.Bmi.ToString("F2")</p>
 
-    <a asp-action="Index" class="btn btn-primary">Qaytish</a>
+    <a asp-action="Index" class="btn btn-primary mt-3">Qaytish</a>
+
+    <div class="mt-4 p-3 bg-white border rounded">
+        @{
+            double T = Model.Bmi;
+            if (T < 18.5)
+            {
+                <p class="text-info"><strong>Maslahat:</strong> Siz vazn yetishmasligiga ega bo'lishingiz mumkin. Sog'lig'ingiz uchun ovqatlanish va turmush tarziga e'tibor bering.</p>
+            }
+            else if (T >= 18.5 && T <= 24.9)
+            {
+                <p class="text-success"><strong>Maslahat:</strong> Sizning vazningiz normal hisoblanadi. Shu holatda davom eting!</p>
+            }
+            else if (T >= 25 && T <= 29.9)
+            {
+                <p class="text-warning"><strong>Maslahat:</strong> Siz ortiqcha vaznga ega bo'lishingiz mumkin. Sog'lom ovqatlanishga va jismoniy faollikka e'tibor bering.</p>
+            }
+            else
+            {
+                <p class="text-danger"><strong>Maslahat:</strong> Sizda ortiqcha vazn bor va sog'lig'ingiz uchun ehtiyot choralari ko'rishingiz kerak. Shifokoringiz bilan maslahatlashishni o'ylab ko'ring.</p>
+            }
+        }
+    </div>
 </div>
