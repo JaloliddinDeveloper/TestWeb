@@ -11,22 +11,30 @@
 
     <div class="mt-4 p-3 bg-white border rounded">
         @{
-            double T = Model.Bmi;
-            if (T < 18.5)
+            double bmi = Model.Bmi;
+            double heightInMeters = Model.Height / 100.0;
+            double minIdealWeight = 18.5 * (heightInMeters * heightInMeters);
+            double maxIdealWeight = 24.9 * (heightInMeters * heightInMeters);
+
+            if (bmi < 18.5)
             {
                 <p class="text-info"><strong>Maslahat:</strong> Siz vazn yetishmasligiga ega bo'lishingiz mumkin. Sog'lig'ingiz uchun ovqatlanish va turmush tarziga e'tibor bering.</p>
+                <p>Ideal vaznga yetish uchun siz <strong>@((minIdealWeight - Model.Weight).ToString("F0")) kg</strong> orttirishingiz kerak.</p>
             }
-            else if (T >= 18.5 && T <= 24.9)
+            else if (bmi >= 18.5 && bmi <= 24.9)
             {
                 <p class="text-success"><strong>Maslahat:</strong> Sizning vazningiz normal hisoblanadi. Shu holatda davom eting!</p>
+                <p>Siz ideal vazn oralig'idasiz (18.5 - 24.9 BMI).</p>
             }
-            else if (T >= 25 && T <= 29.9)
+            else if (bmi >= 25 && bmi <= 29.9)
             {
                 <p class="text-warning"><strong>Maslahat:</strong> Siz ortiqcha vaznga ega bo'lishingiz mumkin. Sog'lom ovqatlanishga va jismoniy faollikka e'tibor bering.</p>
+                <p>Ideal vaznga yetish uchun siz <strong>@((Model.Weight - maxIdealWeight).ToString("F0")) kg</strong> ozishingiz kerak.</p>
             }
             else
             {
                 <p class="text-danger"><strong>Maslahat:</strong> Sizda ortiqcha vazn bor va sog'lig'ingiz uchun ehtiyot choralari ko'rishingiz kerak. Shifokoringiz bilan maslahatlashishni o'ylab ko'ring.</p>
+                <p>Ideal vaznga yetish uchun siz <strong>@((Model.Weight - maxIdealWeight).ToString("F0")) kg</strong> ozishingiz kerak.</p>
             }
         }
     </div>
