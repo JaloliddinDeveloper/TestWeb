@@ -1,8 +1,16 @@
+using System.Net;
+
 public class Program
 {
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.WebHost.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.Listen(IPAddress.Loopback, 3001);  
+        });
+
 
         builder.Services.AddControllersWithViews();
 

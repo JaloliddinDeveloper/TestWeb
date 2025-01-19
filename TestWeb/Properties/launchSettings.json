@@ -13,25 +13,18 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5208",
+      "applicationUrl": "http://178.128.52.236:5208", // Server IP manzili va port
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production" // Ishlab chiqarish muhiti
       }
     },
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7018;http://localhost:5208",
+      "applicationUrl": "https://178.128.52.236:7018;http://178.128.52.236:5208", // Server IP manzili va port
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production" // Ishlab chiqarish muhiti
       }
     }
   }
